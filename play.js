@@ -37,7 +37,6 @@ function checkZones(ctx){
         zones.four.in = true
         o.light = true
         o.draw(ctx, zones.four.cx, zones.four.cy)
-        console.log(zones.four.cx, zones.four.cy)
     }
     else{
         zones.four.in = false
@@ -97,8 +96,64 @@ function checkZones(ctx){
 
 export const play = {
     turn: true,
+    zoneIn: 0,
     player(ctx){
         checkZones(ctx)
+        if(this.turn && click){
+            if(zones.one.in || zones.one.placed){
+                o.light = false
+                o.draw(ctx, zones.one.cx, zones.one.cy)
+                zones.one.placed = true
+            }
+
+            if(zones.two.in || zones.two.placed){
+                o.light = false
+                o.draw(ctx, zones.two.cx, zones.two.cy)
+                zones.two.placed = true
+            }
+
+            if(zones.three.in || zones.three.placed){
+                o.light = false
+                o.draw(ctx, zones.three.cx, zones.three.cy)
+                zones.three.placed = true
+            }
+
+            if(zones.four.in || zones.four.placed){
+                o.light = false
+                o.draw(ctx, zones.four.cx, zones.four.cy)
+                zones.four.placed = true
+            }
+
+            if(zones.five.in || zones.five.placed){
+                o.light = false
+                o.draw(ctx, zones.five.cx, zones.five.cy)
+                zones.five.placed = true
+            }
+
+            if(zones.six.in || zones.six.placed){
+                o.light = false
+                o.draw(ctx, zones.six.cx, zones.six.cy)
+                zones.six.placed = true
+            }
+
+            if(zones.seven.in || zones.seven.placed){
+                o.light = false
+                o.draw(ctx, zones.seven.cx, zones.seven.cy)
+                zones.seven.placed = true
+            }
+
+            if(zones.eight.in || zones.eight.placed){
+                o.light = false
+                o.draw(ctx, zones.eight.cx, zones.eight.cy)
+                zones.eight.placed = true
+            }
+
+            if(zones.nine.in || zones.nine.placed){
+                o.light = false
+                o.draw(ctx, zones.nine.cx, zones.nine.cy)
+                zones.nine.placed = true
+            }
+        } 
         
     },
 
