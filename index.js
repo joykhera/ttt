@@ -1,8 +1,10 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-import { drawStars } from './background.js'
+import { board } from './board.js'
 
+
+    board.draw(ctx)
 
     function update(){
         ctx.canvas.width = window.innerWidth
