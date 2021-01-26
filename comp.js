@@ -8,7 +8,6 @@ export const comp = {
     isTurn(){
         if(player.turn) this.turn = false
         else if(!player.turn) this.turn = true
-        console.log(this.turn)
     },
 
     checkPlaced(zone){
@@ -19,14 +18,12 @@ export const comp = {
 
     checkDraw(ctx, zone){
         this.checkPlaced(zone)
-        
         if(zone.draw.x){
             x.draw(ctx, zone.cx, zone.cy)
             zone.placed = true
             player.turn = true
         }
         else player.turn = false
-        
     },
 
     draw(ctx){

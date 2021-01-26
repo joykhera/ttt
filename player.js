@@ -22,7 +22,6 @@ function checkZones(ctx){
 
 export const player = {
     turn: true,
-    place: false,
 
     draw(ctx, zone){
         if(zone.draw.o){
@@ -45,7 +44,6 @@ export const player = {
             if(this.turn){
                 this.draw(ctx, zone)
             }
-        }    
-        //console.log(zones.nine.x1, zones.nine.x2, zones.nine.y1, zones.nine.y2, mouseX, mouseY, zones.nine.in)
+        }
     }
 }
