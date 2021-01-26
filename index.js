@@ -1,17 +1,17 @@
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+export const ctx = canvas.getContext('2d');
 
 import { board } from './board.js'
-import { x } from './shapes.js'
-import { o } from './shapes.js'
-    
-board.draw(ctx)
-o.draw(ctx, canvas.width / 2, canvas.height / 2)
+import { click } from './input.js'
+import { play } from './play.js'
 
-    // function update(){
-    //     ctx.canvas.width = window.innerWidth
-    //     ctx.canvas.height = window.innerHeight
-
-    //     window.requestAnimationFrame(update);
-    // }
-    // update()
+function update(){
+    ctx.canvas.width = window.innerWidth
+    ctx.canvas.height = window.innerHeight
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    board.draw(ctx)
+    play.player(ctx)
+    //click = false
+    window.requestAnimationFrame(update);
+}
+update()

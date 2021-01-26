@@ -31,7 +31,6 @@ export const board = {
         ctx.lineWidth = this.lw
         ctx.strokeStyle = this.color
         ctx.stroke();
-        console.log(ctx.lineWidth, ctx.strokeStyle)
     }
 
 }
