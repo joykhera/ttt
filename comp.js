@@ -4,35 +4,36 @@ import { player } from "./player.js"
 
 export const comp = {
     turn: false,
-    drawZone: 0,
 
     isTurn(){
         if(player.turn) this.turn = false
         else if(!player.turn) this.turn = true
+        console.log(this.turn)
     },
 
     checkPlaced(zone){
         if(!zone.placed){
-            this.drawZone = zone
-            zone.placed = true
+            zone.draw.x = true
         }
     },
 
     checkDraw(ctx, zone){
         this.checkPlaced(zone)
-        if(this.drawZone = zone){
-            const newX = new x()
-            newX.draw(ctx, zone.cx, zone.cy)
+        
+        if(zone.draw.x){
+            x.draw(ctx, zone.cx, zone.cy)
+            zone.placed = true
+            player.turn = true
         }
+        else player.turn = false
+        
     },
 
     draw(ctx){
-        this.isTurn()
-        if(this.turn){
-            for(const zone of zonearr){
-                this.checkDraw(ctx, zone)
-            }    
-            player.turn = true
+        for(const zone of zonearr){
+            this.isTurn()
+            if(this.turn) this.checkDraw(ctx, zone)
+            
         }
     }
 }

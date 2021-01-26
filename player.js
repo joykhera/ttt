@@ -24,21 +24,28 @@ export const player = {
     turn: true,
     place: false,
 
-    checkDraw(ctx, zone){
-        o.light = false
-        o.draw(ctx, zone.cx, zone.cy)
-        zone.placed = true
-        this.turn = false
+    draw(ctx, zone){
+        if(zone.draw.o){
+            o.light = false
+            o.draw(ctx, zone.cx, zone.cy)
+            zone.placed = true
+            this.turn = false
+        }
+        else this.turn = true
     },
 
-    draw(ctx){
+    checkDraw(ctx){
         checkZones(ctx)
         if(this.turn && click){
             for(const zone of zonearr){
-                if(zone.in) this.checkDraw(ctx, zone)
+                if(zone.in && !zone.placed) zone.draw.o = true
             }
         }
+        for(const zone of zonearr){
+            if(this.turn){
+                this.draw(ctx, zone)
+            }
+        }    
         //console.log(zones.nine.x1, zones.nine.x2, zones.nine.y1, zones.nine.y2, mouseX, mouseY, zones.nine.in)
-        console.log(this.turn)
     }
 }

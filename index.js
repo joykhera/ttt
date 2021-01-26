@@ -9,7 +9,7 @@ import { player } from './player.js'
 function update(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     board.draw(ctx)
-    player.draw(ctx)
+    player.checkDraw(ctx)
     comp.draw(ctx)
     unClick()
     window.requestAnimationFrame(update);

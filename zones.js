@@ -5,6 +5,10 @@ export const zones = {
     one: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: (canvas.width / 2) - (board.size * 1.5),
         x2: canvas.width / 2 - board.size / 2,
         cx: ((canvas.width / 2 - board.size / 2) + (canvas.width / 2 - board.size * 1.5)) / 2,
@@ -16,6 +20,10 @@ export const zones = {
     two: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 - board.size / 2,
         x2: canvas.width / 2 + board.size / 2,
         cx: ((canvas.width / 2 + board.size / 2) + (canvas.width / 2 - board.size / 2)) / 2,
@@ -27,6 +35,10 @@ export const zones = {
     three: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 + board.size / 2,
         x2: canvas.width / 2 + board.size * 1.5,
         cx: ((canvas.width / 2 + board.size * 1.5) + (canvas.width / 2 + board.size / 2)) / 2,
@@ -38,6 +50,10 @@ export const zones = {
     four: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 - board.size * 1.5,
         x2: canvas.width / 2 - board.size / 2,
         cx: ((canvas.width / 2 - board.size / 2) + (canvas.width / 2 - board.size * 1.5)) / 2,
@@ -49,6 +65,10 @@ export const zones = {
     five: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 - board.size / 2,
         x2: canvas.width / 2 + board.size / 2,
         cx: ((canvas.width / 2 + board.size / 2) + (canvas.width / 2 - board.size / 2)) / 2,
@@ -60,6 +80,10 @@ export const zones = {
     six: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 + board.size / 2,
         x2: canvas.width / 2 + board.size * 1.5,
         cx: ((canvas.width / 2 + board.size * 1.5) + (canvas.width / 2 + board.size / 2)) / 2,
@@ -71,6 +95,10 @@ export const zones = {
     seven: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 - board.size * 1.5,
         x2: canvas.width / 2 - board.size / 2,
         cx: ((canvas.width / 2 - board.size / 2) + (canvas.width / 2 - board.size * 1.5)) / 2,
@@ -82,6 +110,10 @@ export const zones = {
     eight: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 - board.size / 2,
         x2: canvas.width / 2 + board.size / 2,
         cx: ((canvas.width / 2 + board.size / 2) + (canvas.width / 2 - board.size / 2)) / 2,
@@ -93,6 +125,10 @@ export const zones = {
     nine: {
         in: false,
         placed: false,
+        draw: {
+            o: false,
+            x: false,
+        },
         x1: canvas.width / 2 + board.size / 2,
         x2: canvas.width / 2 + board.size * 1.5,
         cx: ((canvas.width / 2 + board.size * 1.5) + (canvas.width / 2 + board.size / 2)) / 2,
