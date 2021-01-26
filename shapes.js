@@ -1,7 +1,9 @@
-export const x = {
-    size: 200,
-    color: "blue",
-    lw: 10,
+export class x {
+    constructor(){
+        this.size = 200
+        this.color = "blue"
+        this.lw = 10
+    }
 
     draw(ctx, x, y){
         ctx.beginPath();

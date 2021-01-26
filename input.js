@@ -13,3 +13,7 @@ function moveHandler(e) {
 function clickHandler() {
     click = true
 }
+
+export function unClick(){
+    click = false
+}

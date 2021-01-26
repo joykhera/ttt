@@ -101,3 +101,6 @@ export const zones = {
         cy: ((canvas.height / 2 + board.size * 1.5) + (canvas.height / 2 + board.size / 2)) / 2
     },
 }
+
+export const zonearr = []
+zonearr.push(zones.one, zones.two, zones.three, zones.four, zones.five, zones.six, zones.seven, zones.eight, zones.nine)
