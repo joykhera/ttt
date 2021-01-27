@@ -5,13 +5,10 @@ import { o } from "./shapes.js"
 function inZone(ctx, zone){
     if(mouseX > zone.x1 && mouseX < zone.x2 && mouseY > zone.y1 && mouseY < zone.y2){
         zone.in = true
-        o.light = true
-        o.draw(ctx, zone.cx, zone.cy)
+        const newo = new o()
+        newo.drawLight(ctx, zone.cx, zone.cy)
     }
-    else{
-        zone.in = false
-        o.light = false
-    } 
+    else zone.in = false
 }
 
 function checkZones(ctx){
@@ -25,8 +22,8 @@ export const player = {
 
     draw(ctx, zone){
         if(zone.draw.o){
-            o.light = false
-            o.draw(ctx, zone.cx, zone.cy)
+            const newo = new o()
+            newo.draw(ctx, zone.cx, zone.cy)
             zone.placed = true
             this.turn = false
         }

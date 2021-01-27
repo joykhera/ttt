@@ -1,7 +1,9 @@
-export const x = {
-    size: 200,
-    color: "blue",
-    lw: 10,
+export class x {
+    constructor(){
+        this.size = 200
+        this.color = "blue"
+        this.lw = 10
+    }
 
     draw(ctx, x, y){
         ctx.beginPath();
@@ -20,20 +22,28 @@ export const x = {
     }
 }
 
-export const o = {
-    size: 100,
-    color: "red",
-    lw: 10,
-    light: false,
-    ga: 1,
+export class o {
+    constructor(){
+        this.size = 100
+        this.color = "red"
+        this.lw = 10
+        this.light = false
+    }
 
     draw(ctx, x, y){
-        if(this.light) this.ga = 0.2
-        else this.ga = 1
         ctx.beginPath();
         ctx.arc(x, y, this.size, 0, 2 * Math.PI);
         ctx.lineWidth = this.lw
-        ctx.globalAlpha = this.ga
+        ctx.globalAlpha = 1
+        ctx.strokeStyle = this.color
+        ctx.stroke();
+    }
+
+    drawLight(ctx, x, y){
+        ctx.beginPath();
+        ctx.arc(x, y, this.size, 0, 2 * Math.PI);
+        ctx.lineWidth = this.lw
+        ctx.globalAlpha = 0.2
         ctx.strokeStyle = this.color
         ctx.stroke();
     }
