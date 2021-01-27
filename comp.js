@@ -3,26 +3,22 @@ import { x } from "./shapes.js"
 import { player } from "./player.js"
 
 export const comp = {
-    checkPlaced(zone){
-        if(!zone.placed){
+    checkDraw(zone){
+        if(!zone.placed && !player.turn){
             zone.draw.x = true
-        }
-    },
-
-    checkDraw(ctx, zone){
-        this.checkPlaced(zone)
-        if(zone.draw.x){
-            const newx = new x()
-            newx.draw(ctx, zone.cx, zone.cy)
-            zone.placed = true
-            player.turn = true
-        }
-        else player.turn = false
+        }    
     },
 
     draw(ctx){
         for(const zone of zonearr){
-            if(!player.turn) this.checkDraw(ctx, zone)
+            this.checkDraw(zone)
+            if(zone.draw.x){
+                const newx = new x()
+                newx.draw(ctx, zone.cx, zone.cy)
+                zone.placed = true
+                player.turn = true
+            }
+            else player.turn = false
         }
     }
 }

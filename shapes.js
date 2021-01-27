@@ -10,6 +10,7 @@ export class x {
         ctx.moveTo(x - this.size / 2, y - this.size / 2);
         ctx.lineTo(x + this.size / 2, y + this.size / 2);
         ctx.lineWidth = this.lw
+        ctx.globalAlpha = 1
         ctx.strokeStyle = this.color
         ctx.stroke();
 
@@ -17,6 +18,7 @@ export class x {
         ctx.moveTo(x + this.size / 2, y - this.size / 2);
         ctx.lineTo(x - this.size / 2, y + this.size / 2);
         ctx.lineWidth = this.lw
+        ctx.globalAlpha = 1
         ctx.strokeStyle = this.color
         ctx.stroke();
     }
