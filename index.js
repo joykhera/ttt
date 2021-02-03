@@ -12,6 +12,7 @@ function update(){
     player.draw(ctx)
     comp.draw(ctx)
     unClick()
+    console.log(player.turn)
     window.requestAnimationFrame(update);
 }
 update()

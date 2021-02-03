@@ -6,7 +6,7 @@ export const comp = {
     checkDraw(zone){
         if(!zone.placed && !player.turn){
             zone.draw.x = true
-        }    
+        }
     },
 
     draw(ctx){
@@ -18,7 +18,7 @@ export const comp = {
                 zone.placed = true
                 player.turn = true
             }
-            else player.turn = false
+            else if(player.turn) break
         }
     }
 }

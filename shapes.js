@@ -29,7 +29,6 @@ export class o {
         this.size = 100
         this.color = "red"
         this.lw = 10
-        this.light = false
     }
 
     draw(ctx, x, y){

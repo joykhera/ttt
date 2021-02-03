@@ -22,11 +22,9 @@ export const player = {
 
     checkDraw(ctx){
         checkZones(ctx)
-        console.log("work")
         if(this.turn && click){
             for(const zone of zonearr){
                 if(zone.in && !zone.placed) zone.draw.o = true
-                console.log(zone.draw.o)
             }
         }
     },
@@ -40,7 +38,7 @@ export const player = {
                 zone.placed = true
                 this.turn = false
             }
-        //else this.turn = true
+            else if(!player.turn) break
         }
     },
 }
