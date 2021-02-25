@@ -1,5 +1,4 @@
 import { board } from './board.js'
-import { ctx } from './index.js'
 
 export const zones = {
     one: {

@@ -1,44 +1,33 @@
 import { zonearr } from "./zones.js"
-import { mouseX, mouseY, click } from "./input.js"
+import { mouseX, mouseY } from "./input.js"
 import { o } from "./shapes.js"
-
-function inZone(ctx, zone){
-    if(mouseX > zone.x1 && mouseX < zone.x2 && mouseY > zone.y1 && mouseY < zone.y2){
-        zone.in = true
-        const newo = new o()
-        newo.drawLight(ctx, zone.cx, zone.cy)
-    }
-    else zone.in = false
-}
+import { drawO } from "./draw.js"
 
 function checkZones(ctx){
     for(const zone of zonearr){
-        inZone(ctx, zone)
+        if(mouseX > zone.x1 && mouseX < zone.x2 && mouseY > zone.y1 && mouseY < zone.y2) zone.in = true
+        else zone.in = false
     }
 }
 
 export const player = {
     turn: true,
 
-    checkDraw(ctx){
+    push(ctx){
         checkZones(ctx)
-        if(this.turn && click){
+        if(this.turn){
             for(const zone of zonearr){
-                if(zone.in && !zone.placed) zone.draw.o = true
+                if(zone.in && !zone.placed){
+                    const newO = new o()
+                    newO.x = zone.cx
+                    newO.y = zone.cy
+                    drawO.push(newO)
+                    zone.placed = true
+                    zone.draw.o = true
+                    this.turn = false
+                }
+                else if(!player.turn) break
             }
-        }
-    },
-
-    draw(ctx, zone){
-        for(const zone of zonearr){
-            this.checkDraw(ctx)
-            if(zone.draw.o){
-                const newo = new o()
-                newo.draw(ctx, zone.cx, zone.cy)
-                zone.placed = true
-                this.turn = false
-            }
-            else if(!player.turn) break
-        }
+        }    
     },
 }

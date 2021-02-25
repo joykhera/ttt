@@ -3,16 +3,15 @@ export const ctx = canvas.getContext('2d');
 
 import { board } from './board.js'
 import { comp } from './comp.js';
-import { unClick } from './input.js'
-import { player } from './player.js'
+import { draw } from './draw.js'
+import { end } from "./gameover.js"
 
 function update(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    if(end) return
     board.draw(ctx)
-    player.draw(ctx)
-    comp.draw(ctx)
-    unClick()
-    console.log(player.turn)
+    comp.push(ctx)
+    draw(ctx)
     window.requestAnimationFrame(update);
 }
 update()
