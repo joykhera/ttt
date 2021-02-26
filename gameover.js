@@ -1,34 +1,35 @@
 import { zonearr } from "./zones.js"
-import { o } from "./shapes.js"
-import { x } from "./shapes.js"
+import { o, x } from "./shapes.js"
 
 export let end = false
 
 export function gameOver(winner, ctx){
     end = true
-    
+
     if(winner == 0){
-        ctx.font = "100px Arial"
-        ctx.fillText("It's a Tie!", 10, 50)
+        ctx.font = "300px Arial"
+        ctx.fillText("It's a Tie!", 100, 450)
     }
 
     else if(winner == 1){
         const newO = new o()
-        newO.size = 100
+        newO.size = 300
+        newO.x = 325
+        newO.y = 375
         newO.draw(ctx)
-        ctx.font = "100px Arial"
-        ctx.fillText("Wins!", 10, 50)
+        ctx.font = "300px Arial"
+        ctx.fillText("Wins!", 650, 450)
     }
 
     else if(winner == 2){
         const newX = new x()
-        newX.size = 100
+        newX.size = 700
+        newX.x = 375
+        newX.y = 375
         newX.draw(ctx)
-        ctx.font = "100px Arial"
-        ctx.fillText("Wins!", 10, 50)
+        ctx.font = "300px Arial"
+        ctx.fillText("Wins!", 550, 450)
     }
-
-    console.log(winner)
 }
 
 export function getWinner(ctx){
@@ -38,58 +39,62 @@ export function getWinner(ctx){
     for(const zone of zonearr){
         if(zone.draw.o) zones.push(true)
         else if(zone.draw.x) zones.push(false)
+        else zones.push(undefined)
     }
 
-    for(let i = 1; i < zonearr.length; i++){
+    for(let i = 0; i < zones.length; i++){
         if(i % 3 == 0){
-            if(zonearr[i] && zonearr[i + 1] && zonearr[i + 2]){
+            if(zones[i] && zones[i + 1] && zones[i + 2]){
                 winner = 1
-                gameOver(winner, ctx)
-                return winner
+                console.log("o1")
+                break
             }
-            else if(!zonearr[i] && !zonearr[i + 1] && !zonearr[i + 2]){
+            else if(zones[i] == false && zones[i + 1] == false && zones[i + 2] == false ){
                 winner = 2
-                gameOver(winner, ctx)
-                return winner
+                console.log("x1")
+                break
             }
         }
 
         if(i < 3){
-            if(zonearr[i] && zonearr[i + 3] && zonearr[i + 6]){
+            if(zones[i] && zones[i + 3] && zones[i + 6]){
                 winner = 1
-                return winner
+                console.log("o2")
+                break
             }
-            if(!zonearr[i] && !zonearr[i + 3] && !zonearr[i + 6]){
+            if(zones[i] == false && zones[i + 3] == false && zones[i + 6] == false){
                 winner = 2
-                gameOver(winner, ctx)
-                return winner
+                console.log("x2")
+                break
             }
         }
 
         if(i == 0){
-            if(zonearr[i] && zonearr[i + 4] && zonearr[i + 8]){
+            if(zones[i] && zones[i + 4] && zones[i + 8]){
                 winner = 1
-                gameOver(winner, ctx)
-                return winner
+                console.log("o3")
+                break
             }
-            if(!zonearr[i] && !zonearr[i + 4] && !zonearr[i + 8]){
+            if(zones[i] == false && zones[i + 4] == false && zones[i + 8] == false){
                 winner = 2
-                gameOver(winner, ctx)
-                return winner
+                console.log("x3")
+                break
             }
         }
 
         if(i == 2){
-            if(zonearr[i] && zonearr[i + 2] && zonearr[i + 4]){
+            if(zones[i] && zones[i + 2] && zones[i + 4]){
                 winner = 1
-                gameOver(winner, ctx)
-                return winner
+                console.log("o4")
+                break
             }
-            if(!zonearr[i] && !zonearr[i + 2] && !zonearr[i + 4]){
+            if(zones[i] == false && zones[i + 2] == false && zones[i + 4] == false){
                 winner = 2
-                gameOver(winner, ctx)
-                return winner
+                console.log("x4")
+                break
             }
         }
     }
+
+    if(winner == 1 || winner == 2) {console.log("go"), gameOver(winner, ctx)}
 }

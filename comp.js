@@ -2,8 +2,10 @@ import { zonearr } from "./zones.js"
 import { x } from "./shapes.js"
 import { player } from "./player.js"
 import { drawX } from "./draw.js"
-import { gameOver, getWinner } from "./gameover.js"
+import { getWinner } from "./gameover.js"
 import { compMove } from "./compMove.js"
+
+export let over = false
 
 export const comp = {
 
@@ -18,21 +20,19 @@ export const comp = {
         }
 
         compMove(zonesO)
+        if(compMove(zonesO)) return compMove(zonesO)
+
         compMove(zonesX)
+        if(compMove(zonesX)) return compMove(zonesX)
 
-        if(compMove(zonesO) == undefined && compMove(zonesX) == undefined){
-            if(!zonearr[4].placed) return zonearr[4]
-            else for(const zone of zonearr) if(!zone.placed) return zone
-            gameOver(0, ctx)
-
-        }
-        
+        if(!zonearr[4].placed) return zonearr[4]
+        else for(const zone of zonearr) if(!zone.placed) return zone
+        over = true
     },
     
     push(ctx){
         let zone = this.findZone(ctx)
-        // console.log(zone)
-        if(zone !== undefined)
+        if(zone)
             if(!zone.placed && !player.turn){
                 const newX = new x()
                 newX.x = zone.cx
@@ -41,9 +41,8 @@ export const comp = {
                 zone.placed = true
                 zone.draw.x = true
                 player.turn = true
-                this.i++
             }
 
-        // getWinner(ctx); console.log("w")
+        getWinner(ctx)
     }
 }
