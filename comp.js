@@ -17,7 +17,6 @@ export const comp = {
             if(zone.draw.o) zonesO.push(index)
             else if(zone.draw.x) zonesX.push(index)
         }
-        // console.log(zonesO, zonesX)
         if(compMove(zonesO)) return compMove(zonesO)
         else if(compMove(zonesX)) return compMove(zonesX)
 
@@ -28,16 +27,15 @@ export const comp = {
     
     push(ctx){
         let zone = this.findZone()
-        if(zone)
-            if(!zone.placed && !player.turn){
-                const newX = new x()
-                newX.x = zone.cx
-                newX.y = zone.cy
-                drawX.push(newX)
-                zone.placed = true
-                zone.draw.x = true
-                player.turn = true
-            }
+        if(zone && !zone.placed && !player.turn){
+            const newX = new x()
+            newX.x = zone.cx
+            newX.y = zone.cy
+            drawX.push(newX)
+            zone.placed = true
+            zone.draw.x = true
+            player.turn = true
+        }
         getWinner(ctx)
     }
 }

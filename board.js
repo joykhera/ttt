@@ -1,5 +1,5 @@
 export const board = {
-    size: 250,
+    size: canvas.height / 3,
     color: "black",
     lw: 20,
 
@@ -36,5 +36,4 @@ export const board = {
         ctx.strokeStyle = this.color
         ctx.stroke();
     }
-
 }
