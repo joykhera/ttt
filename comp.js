@@ -17,7 +17,7 @@ export const comp = {
             if(zone.draw.o) zonesO.push(index)
             else if(zone.draw.x) zonesX.push(index)
         }
-        console.log(zonesO, zonesX)
+        // console.log(zonesO, zonesX)
         if(compMove(zonesO)) return compMove(zonesO)
         else if(compMove(zonesX)) return compMove(zonesX)
 
@@ -38,7 +38,6 @@ export const comp = {
                 zone.draw.x = true
                 player.turn = true
             }
-
         getWinner(ctx)
     }
 }

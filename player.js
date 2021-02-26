@@ -2,6 +2,7 @@ import { zonearr } from "./zones.js"
 import { mouseX, mouseY } from "./input.js"
 import { o } from "./shapes.js"
 import { drawO } from "./draw.js"
+import { getWinner } from "./gameover.js"
 
 export function checkZones(){
     for(const zone of zonearr){
@@ -28,6 +29,7 @@ export const player = {
                 }
                 else if(!player.turn) break
             }
-        }    
+        } 
+        getWinner(ctx)
     },
 }

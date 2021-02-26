@@ -47,14 +47,11 @@ export function getWinner(ctx){
 
     for(let i = 0; i < zones.length; i++){
         if(i % 3 == 0){
-            console.log(i, zones[i], zones[i + 1], zones[i + 2], winner)
             if(zones[i] && zones[i + 1] && zones[i + 2]){
-                console.log("o")
                 winner = 1
                 break
             }
             else if(zones[i] == false && zones[i + 1] == false && zones[i + 2] == false ){
-                console.log("x")
                 winner = 2
                 break
             }
