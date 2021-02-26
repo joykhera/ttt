@@ -47,14 +47,15 @@ export function getWinner(ctx){
 
     for(let i = 0; i < zones.length; i++){
         if(i % 3 == 0){
+            console.log(i, zones[i], zones[i + 1], zones[i + 2], winner)
             if(zones[i] && zones[i + 1] && zones[i + 2]){
+                console.log("o")
                 winner = 1
-                console.log("o1")
                 break
             }
             else if(zones[i] == false && zones[i + 1] == false && zones[i + 2] == false ){
+                console.log("x")
                 winner = 2
-                console.log("x1")
                 break
             }
         }
@@ -62,12 +63,10 @@ export function getWinner(ctx){
         if(i < 3){
             if(zones[i] && zones[i + 3] && zones[i + 6]){
                 winner = 1
-                console.log("o2")
                 break
             }
-            if(zones[i] == false && zones[i + 3] == false && zones[i + 6] == false){
+            else if(zones[i] == false && zones[i + 3] == false && zones[i + 6] == false){
                 winner = 2
-                console.log("x2")
                 break
             }
         }
@@ -75,12 +74,10 @@ export function getWinner(ctx){
         if(i == 0){
             if(zones[i] && zones[i + 4] && zones[i + 8]){
                 winner = 1
-                console.log("o3")
                 break
             }
-            if(zones[i] == false && zones[i + 4] == false && zones[i + 8] == false){
+            else if(zones[i] == false && zones[i + 4] == false && zones[i + 8] == false){
                 winner = 2
-                console.log("x3")
                 break
             }
         }
@@ -88,16 +85,14 @@ export function getWinner(ctx){
         if(i == 2){
             if(zones[i] && zones[i + 2] && zones[i + 4]){
                 winner = 1
-                console.log("o4")
                 break
             }
-            if(zones[i] == false && zones[i + 2] == false && zones[i + 4] == false){
+            else if(zones[i] == false && zones[i + 2] == false && zones[i + 4] == false){
                 winner = 2
-                console.log("x4")
                 break
             }
         }
     }
 
-    if(winner == 1 || winner == 2) {console.log("go"), gameOver(winner, ctx)}
+    if(winner == 1 || winner == 2) gameOver(winner, ctx)
 }

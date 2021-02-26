@@ -8,8 +8,7 @@ import { compMove } from "./compMove.js"
 export let over = false
 
 export const comp = {
-
-    findZone(ctx){
+    findZone(){
         let zonesO = []
         let zonesX = []
 
@@ -18,12 +17,9 @@ export const comp = {
             if(zone.draw.o) zonesO.push(index)
             else if(zone.draw.x) zonesX.push(index)
         }
-
-        compMove(zonesO)
+        console.log(zonesO, zonesX)
         if(compMove(zonesO)) return compMove(zonesO)
-
-        compMove(zonesX)
-        if(compMove(zonesX)) return compMove(zonesX)
+        else if(compMove(zonesX)) return compMove(zonesX)
 
         if(!zonearr[4].placed) return zonearr[4]
         else for(const zone of zonearr) if(!zone.placed) return zone
@@ -31,7 +27,7 @@ export const comp = {
     },
     
     push(ctx){
-        let zone = this.findZone(ctx)
+        let zone = this.findZone()
         if(zone)
             if(!zone.placed && !player.turn){
                 const newX = new x()

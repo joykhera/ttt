@@ -11,7 +11,7 @@ export function draw(ctx){
 
     for(const zone of zonearr){
         checkZones()
-        if(zone.in){
+        if(zone.in && !zone.placed){
             const newO = new o()
             newO.drawLight(ctx, zone.cx, zone.cy)
         }
