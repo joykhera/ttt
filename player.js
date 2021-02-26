@@ -3,7 +3,7 @@ import { mouseX, mouseY } from "./input.js"
 import { o } from "./shapes.js"
 import { drawO } from "./draw.js"
 
-function checkZones(ctx){
+export function checkZones(){
     for(const zone of zonearr){
         if(mouseX > zone.x1 && mouseX < zone.x2 && mouseY > zone.y1 && mouseY < zone.y2) zone.in = true
         else zone.in = false
@@ -14,7 +14,7 @@ export const player = {
     turn: true,
 
     push(ctx){
-        checkZones(ctx)
+        checkZones()
         if(this.turn){
             for(const zone of zonearr){
                 if(zone.in && !zone.placed){

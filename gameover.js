@@ -8,6 +8,7 @@ export function gameOver(winner, ctx){
 
     if(winner == 0){
         ctx.font = "300px Arial"
+        ctx.globalAlpha = 1
         ctx.fillText("It's a Tie!", 100, 450)
     }
 
@@ -18,6 +19,7 @@ export function gameOver(winner, ctx){
         newO.y = 375
         newO.draw(ctx)
         ctx.font = "300px Arial"
+        ctx.globalAlpha = 1
         ctx.fillText("Wins!", 650, 450)
     }
 
@@ -28,6 +30,7 @@ export function gameOver(winner, ctx){
         newX.y = 375
         newX.draw(ctx)
         ctx.font = "300px Arial"
+        ctx.globalAlpha = 1
         ctx.fillText("Wins!", 550, 450)
     }
 }
