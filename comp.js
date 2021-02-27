@@ -15,10 +15,11 @@ export const comp = {
         for(const zone of zonearr){
             const index = zonearr.indexOf(zone)
             if(zone.draw.o) zonesO.push(index)
-            else if(zone.draw.x) zonesX.push(index)
+            if(zone.draw.x) zonesX.push(index)
         }
+        
+        if(compMove(zonesX)) return compMove(zonesX)
         if(compMove(zonesO)) return compMove(zonesO)
-        else if(compMove(zonesX)) return compMove(zonesX)
 
         if(!zonearr[4].placed) return zonearr[4]
         else for(const zone of zonearr) if(!zone.placed) return zone

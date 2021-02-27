@@ -2,7 +2,7 @@ export class x {
     constructor(){
         this.x = 0
         this.y = 0
-        this.size = 200
+        this.size = canvas.height / 3.5
         this.color = "blue"
         this.lw = 10
     }
@@ -30,7 +30,7 @@ export class o {
     constructor(){
         this.x = 0
         this.y = 0
-        this.size = 100
+        this.size = canvas.height / 7
         this.color = "red"
         this.lw = 10
     }
