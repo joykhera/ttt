@@ -7,31 +7,31 @@ export function gameOver(winner, ctx){
     end = true
 
     if(winner == 0){
-        ctx.font = "300px Arial"
+        ctx.font = `${canvas.height / 2.5}px Arial`
         ctx.globalAlpha = 1
-        ctx.fillText("It's a Tie!", 100, 450)
+        ctx.fillText("It's a Tie!", canvas.width / 20, canvas.height / 1.75)
     }
 
     else if(winner == 1){
         const newO = new o()
-        newO.size = 300
-        newO.x = 325
-        newO.y = 375
+        newO.size = canvas.height / 2.5
+        newO.x = canvas.width / 4
+        newO.y = canvas.height / 2
         newO.draw(ctx)
-        ctx.font = "300px Arial"
+        ctx.font = `${canvas.height / 2.5}px Arial`
         ctx.globalAlpha = 1
-        ctx.fillText("Wins!", 650, 450)
+        ctx.fillText("Wins!", canvas.width / 2, canvas.height / 1.5)
     }
 
     else if(winner == 2){
         const newX = new x()
-        newX.size = 700
-        newX.x = 375
-        newX.y = 375
+        newX.size = canvas.height
+        newX.x = canvas.width / 3
+        newX.y = canvas.height / 2
         newX.draw(ctx)
-        ctx.font = "300px Arial"
+        ctx.font = `${canvas.height / 2.5}px Arial`
         ctx.globalAlpha = 1
-        ctx.fillText("Wins!", 550, 450)
+        ctx.fillText("Wins!", canvas.width / 2, canvas.height / 1.5)
     }
 }
 

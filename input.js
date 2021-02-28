@@ -11,7 +11,6 @@ canvas.addEventListener("click", () => clickHandler(), false);
 function moveHandler(e) {
     mouseX = (e.pageX - getscaller.bound.left) / getscaller.scale
     mouseY = (e.pageY - getscaller.bound.top) / getscaller.scale
-    console.log(mouseX, mouseY)
 }
 
 function clickHandler() {
