@@ -8,7 +8,7 @@ export const zones = {
             o: false,
             x: false,
         },
-        x1: (canvas.width / 2) - (board.size * 1.5),
+        x1: canvas.width / 2 - board.size * 1.5,
         x2: canvas.width / 2 - board.size / 2,
         cx: ((canvas.width / 2 - board.size / 2) + (canvas.width / 2 - board.size * 1.5)) / 2,
         y1: canvas.height / 2 - board.size * 1.5,

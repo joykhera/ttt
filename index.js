@@ -8,6 +8,7 @@ import { end, gameOver, getWinner } from "./gameover.js"
 
 canvas.width = 1600
 canvas.height = 900
+window.scale = 0
 
 export function scaler(canvas) {
     const bound = canvas.getBoundingClientRect()
@@ -19,12 +20,15 @@ export function scaler(canvas) {
     canvas.style.transform = 'scale(' + scale + ')';
     canvas.style.left = (winw - canvas.width) / 2 + 'px';
     canvas.style.top = (winh - canvas.height) / 2 + 'px';
-    console.log(winw, winh, xvalue, yvalue, canvas.width, canvas.height)
+    window.scale = scale;
     return {scale: scale, bound: bound}
 }
 scaler(canvas)
+window.onresize = () => scaler(canvas);
+window.getBound = () => canvas.getBoundingClientRect()
 
 function update(){
+    // scaler(canvas)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     if(over) gameOver(0, ctx)
     if(end){
